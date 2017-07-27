@@ -9,6 +9,6 @@ RUN chmod 755 /usr/local/bin/entrypoint.sh
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 WORKDIR /home/user
 
-ENV SERVERLESS serverless@1.17.0
+ENV SERVERLESS serverless@1.18.0
 RUN yarn global add $SERVERLESS
 
