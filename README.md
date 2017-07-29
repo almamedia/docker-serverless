@@ -1,9 +1,16 @@
-Example settings:
+[![](https://images.microbadger.com/badges/version/conmio/serverless.svg)](https://microbadger.com/images/conmio/node "Get your own version badge on microbadger.com")
+[![](https://images.microbadger.com/badges/image/conmio/serverless.svg)](https://microbadger.com/images/conmio/serverless "Get your own image badge on microbadger.com")
+![](https://img.shields.io/docker/automated/conmio/serverless.svg)
+![](https://img.shields.io/docker/build/conmio/serverless.svg)
+
+
+#### Example settings:
 
 	SERVERLESS_PROJECT=~/my_project_folder
 	SERVICE_NAME=example
 ---
-Create a new service:
+
+#### Create a new service:
 ```
 docker run --rm \
  -v $HOME/.aws:/home/user/.aws:ro \
@@ -13,7 +20,8 @@ docker run --rm \
   conmio/serverless sls create --template aws-nodejs --path $SERVICE_NAME
 ```
 ---
-Deploy:
+
+#### Deploy:
 ```
 docker run --rm \
  -v $HOME/.aws:/home/user/.aws:ro \
@@ -23,7 +31,8 @@ docker run --rm \
   conmio/serverless bash -c "npm install;sls deploy"
   ```
   ---
-Shell:
+
+#### Shell:
 ```
 docker run --rm -it \
  -v $HOME/.aws:/home/user/.aws:ro \
