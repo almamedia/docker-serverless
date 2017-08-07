@@ -4,42 +4,40 @@
 ![](https://img.shields.io/docker/build/conmio/serverless.svg)
 
 
-#### Example settings:
+## AWS Example:
 
-	SERVERLESS_PROJECT=~/my_project_folder
-	SERVICE_NAME=example
----
+#### Pre-requisites
+[AWS Credentials](https://serverless.com/framework/docs/providers/aws/guide/credentials/) are required for deployment.
 
-#### Create a new service:
+#### 1. Get makefile
+Copy [this example Makefile](https://github.com/conmio/docker-serverless/blob/master/example/Makefile) to a project folder:
+
 ```
-docker run --rm \
- -v $HOME/.aws:/home/user/.aws:ro \
- -v $SERVERLESS_PROJECT:/home/user/project \
- -e LOCAL_USER_ID=`id -u $USER`\
- -w /home/user/project \
-  conmio/serverless sls create --template aws-nodejs --path $SERVICE_NAME
+mkdir /tmp/sls_test
+cd /tmp/sls_test
+wget https://raw.githubusercontent.com/conmio/docker-serverless/master/example/Makefile
 ```
 ---
 
-#### Deploy:
+#### 2. Create an example service
 ```
-docker run --rm \
- -v $HOME/.aws:/home/user/.aws:ro \
- -v $SERVERLESS_PROJECT:/home/user/project \
- -e LOCAL_USER_ID=`id -u $USER`\
- -w /home/user/project/$SERVICE_NAME \
-  conmio/serverless bash -c "npm install;sls deploy"
-  ```
-  ---
-
-#### Shell:
+make create
 ```
-docker run --rm -it \
- -v $HOME/.aws:/home/user/.aws:ro \
- -v $SERVERLESS_PROJECT:/home/user/project \
- -e LOCAL_USER_ID=`id -u $USER`\
- -w /home/user/project \
-  conmio/serverless
- ```
 ---
-Files written to volume from within the container will be owned by the user running the container.
+
+#### 3. Deploy the service
+```
+make deploy
+```
+---
+
+#### 4. Remove the deployed service
+```
+make remove
+```
+---
+
+#### Open shell to run custom [serverless CLI](https://serverless.com/framework/docs/providers/aws/cli-reference/) commands
+```
+make shell
+```
