@@ -1,4 +1,4 @@
-FROM conmio/node:6.11
+FROM conmio/node:6-alpine
 MAINTAINER Conmio developers
 
-RUN yarn global add serverless@1.26.0
+RUN yarn global add serverless@1.26.1
