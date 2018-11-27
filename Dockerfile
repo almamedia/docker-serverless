@@ -1,4 +1,4 @@
-FROM conmio/node:6-alpine
-MAINTAINER Conmio developers
+FROM almatalent/node:6-alpine
+MAINTAINER almatalent
 
 RUN yarn global add serverless@1.27.3
