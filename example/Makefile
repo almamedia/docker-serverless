@@ -1,5 +1,5 @@
 # docker image name & tag
-NAME = conmio/serverless
+NAME = almatalent/serverless
 TAG = latest
 
 # name of the service
